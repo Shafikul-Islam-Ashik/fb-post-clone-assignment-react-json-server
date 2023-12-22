@@ -9,6 +9,9 @@ import axios from "axios";
 import StatusView from "../../components/statusView/statusView";
 import Meta from "../../components/meta/Meta";
 
+import { RxAvatar } from "react-icons/rx";
+import { FaChevronDown } from "react-icons/fa";
+
 const Home = () => {
   // state for create student modal
   const [modal, setModal] = useState(false);
@@ -213,28 +216,128 @@ const Home = () => {
   return (
     <>
       <Meta title="Facebook" />
-      <Container>
-        <Header />
-        <Row>
-          <Col md={4} className="left-content"></Col>
-          <Col className="middle-content" md={5}>
-            <StatusCreationBox showModal={handleModalShow} />
+      <Header />
 
-            {post.map((item, index) => (
-              <StatusView
-                key={index}
-                content={item}
-                deletePost={handleDeletePost}
-                editPost={handleEditModal}
-              />
-            ))}
-            {/* <StatusView />
-            <StatusView />
-            <StatusView /> */}
-          </Col>
-          <Col md={3} className="wright-content"></Col>
-        </Row>
-      </Container>
+      <div className="body-wrapper">
+        <div className="left">
+          <div className="sidebar">
+            <ul className="ms-3 mt-3">
+              <li>
+                {/* <RxAvatar size={30} />
+                 */}
+                <img
+                  className="rounded-circle"
+                  style={{ height: "40px", width: "40px" }}
+                  src="https://scontent.frjh4-1.fna.fbcdn.net/v/t39.30808-6/387815552_3494756454110075_2828672575439126122_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeE7Bbrv2MxQKn9dSg9mNGGIFMvOQIodv7kUy85Aih2_uXy3rEYZJtXaBdbM-wqdHN0AyilIDWrlKP4KMo8qKhZN&_nc_ohc=RerupdfA6AgAX-TNt_F&_nc_ht=scontent.frjh4-1.fna&oh=00_AfBXjJgt2ar0_MEnQGYIMADPsdR9-jhlAXB7YoMZuXDMZg&oe=6587F065"
+                  alt=""
+                />
+                <p>Shafikul Islam Ashik</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Friends</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Groups</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Video</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yb/r/eECk3ceTaHJ.png')",
+                  }}
+                ></span>
+                <p>Feeds</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>MarketPlace</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Memory</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Saved</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/UcI9fM2oUUV.png?_nc_eui2=AeEoXy2ZyQVw6QokaX71nMzOXnfhz3hpqpFed-HPeGmqkbJBIl0dl_lPyLjApZcASf6hhssOrD-HioGezYcMD0Nb')",
+                  }}
+                ></span>
+                <p>Professional dashboard</p>
+              </li>
+              <li>
+                <span
+                  style={{
+                    backgroundImage:
+                      "url('https://static.xx.fbcdn.net/rsrc.php/v3/yz/r/4GR4KRf3hN2.png')",
+                  }}
+                ></span>
+                <p>Pages</p>
+              </li>
+              <li>
+                <span>
+                  <FaChevronDown />
+                </span>
+                <p>See more</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="middle">
+          <StatusCreationBox showModal={handleModalShow} />
+
+          {post.map((item, index) => (
+            <StatusView
+              key={index}
+              content={item}
+              deletePost={handleDeletePost}
+              editPost={handleEditModal}
+            />
+          ))}
+        </div>
+        <div className="right"></div>
+      </div>
 
       {/* create post modal  starts*/}
       <Modal show={modal} onHide={handleModalHide} centered>
