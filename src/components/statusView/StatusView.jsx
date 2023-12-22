@@ -63,7 +63,7 @@ const StatusView = ({ content, deletePost, editPost }) => {
           <img className="w-100 rounded" src={content.post_photo} alt="" />
         </div>
 
-        <div className="status_actions">
+        <div className="status_actions mt-2">
           <div className="actions_top d-flex justify-content-between">
             <div className="left">
               <img
